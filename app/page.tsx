@@ -78,7 +78,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mb-20">
-        <Input onChange={(e) => handleChange(e)} />
+        <Input onChange={(e: any) => handleChange(e)} />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-8">
         {isSearch
