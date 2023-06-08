@@ -5,11 +5,8 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const Detail = () => {
-  //   const id = parseInt(context.params.id);
-  //   console.log({ context, id });
   const pathname = usePathname();
   const id = parseInt(pathname.split("/").slice(-1)[0]);
-  console.log({ pathname, id });
   const [list, setList] = useState<any>([]);
   useEffect(() => {
     axios
@@ -24,7 +21,6 @@ const Detail = () => {
       )
       .then((res) => setList(res.data));
   }, []);
-  console.log({ list });
   const {
     backdrop_path,
     title,
@@ -37,7 +33,7 @@ const Detail = () => {
   } = list;
   let listGenre = genres?.map((list: any) => list.name);
   return (
-    <div className="container">
+    <div className="container px-4">
       <div className="relative mb-[132px] w-full">
         <Image
           src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
@@ -46,7 +42,7 @@ const Detail = () => {
           height={200}
           className="rounded-2xl w-full"
         />
-        <div className="absolute bottom-[-52px] left-20 bg-[#20283E]/80 p-10 rounded-3xl backdrop-blur-md text-4xl">
+        <div className="absolute bottom-[-52px] left-20 bg-[#20283E]/80 p-10 rounded-3xl backdrop-blur-md text-2xl md:text-4xl">
           {title}
         </div>
       </div>

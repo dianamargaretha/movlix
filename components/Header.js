@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Header = () => {
     return (
-        <div className='container flex justify-between items-center py-5 mb-20'>
+        <div className='container flex justify-between items-center px-4 py-5 mb-20'>
             <div>
                 <Link href={'/'}> <img src='/logo.svg' alt='logo movlix' /></Link>
             </div>

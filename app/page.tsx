@@ -65,7 +65,7 @@ export default function Home() {
     }
   };
   return (
-    <div className="container mb-20">
+    <div className="container mb-20 px-4">
       <div className="flex mb-6">
         <div className="flex-initial w-1/2">
           <h2 className="font-semibold mb-4 text-grey-50 text-6xl">MOVLIX</h2>
