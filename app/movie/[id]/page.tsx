@@ -19,7 +19,8 @@ const Detail = () => {
           },
         }
       )
-      .then((res) => setList(res.data));
+      .then((res) => setList(res.data))
+      .catch((e) => console.log(e));
   }, []);
   const {
     backdrop_path,

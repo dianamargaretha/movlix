@@ -30,8 +30,8 @@ export default function Home() {
       .catch((err) => console.log({ err }));
   }, [isSearch]);
   useEffect(() => {
-    const fetchData = async () => {
-      await axios
+    const fetchData = () => {
+      axios
         .get(
           `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1&api_key=${process.env.NEXT_PUBLIC_API_DB_MOVIE_KEY}`,
           {
