@@ -1,27 +1,24 @@
-"use client";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import React from "react";
 import Image from "next/image";
 
-const Detail = () => {
-  const pathname = usePathname();
-  const id = parseInt(pathname.split("/").slice(-1)[0]);
-  const [list, setList] = useState<any>([]);
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_DB_MOVIE_KEY}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: process.env.NEXT_PUBLIC_API_DB_MOVIE_KEY,
-          },
-        }
-      )
-      .then((res) => setList(res.data))
-      .catch((e) => console.log(e));
-  }, []);
+async function getData(id: number) {
+  const list = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_DB_MOVIE_KEY}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: process.env.NEXT_PUBLIC_API_DB_MOVIE_KEY,
+      },
+    }
+  );
+  return list.data;
+}
+
+const Detail = async (context: any) => {
+  const idString = await context.params.id;
+  const id = await parseInt(idString);
+  const list = await getData(id);
   const {
     backdrop_path,
     title,

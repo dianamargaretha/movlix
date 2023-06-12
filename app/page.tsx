@@ -20,7 +20,7 @@ export default function Home() {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: process.env.NEXT_PUBLIC_API_DB_MOVIE_KEY,
+            Authorization: process.env.NEXT_PUBLIC_API_DB_MOVIE_TOKEN,
           },
         }
       )
